@@ -1,0 +1,49 @@
+<main id="main" class="main">
+   <section class="section dashboard">
+     <div class="row">
+       <div class="col-12">
+         <div class="card">
+           <div class="card-body">
+             <h5 class="card-title">Products Management</h5>
+   <div class="error-link mb-3">
+      <a  [routerLink]="['/admin/add-product', 0, 'Edit']" class="btn btn-outline-primary rounded-pill px-4">Add Product <i class="bi bi-cart-plus fs-5"></i></a>
+    </div>
+   <table class="table table-hover">
+     <thead>
+       <tr>
+         <th>Name</th>
+         <th>Image</th>
+         <th>Rating</th>
+         <th>Category</th>
+         <th>Price</th>
+         <th>Quantity</th>
+         <th>Actions</th>
+       </tr>
+     </thead>
+     <tbody>
+      @for (product of products; track product.id; let i = $index) {
+         <tr>
+          <td hidden>{{product.id}}</td>
+           <td>{{product.name}}</td>
+           <td><img src="{{product.image}}" alt="" style="max-width: 60px;"></td>
+           <td>{{product.rating}}</td>
+           <td>{{product.category}}</td>
+           <td>{{product.price}}</td>
+           <td>{{product.quantity}}</td>
+           <td>
+              <button title="Edit" name="Edit" class="btn btn-primary rounded-pill mx-1" [routerLink]="['/admin/add-product', product.id, 'Edit']">
+               <i class="mx-1 bi bi-pencil-square"></i></button>
+
+              <button title="Delete" name="Delete" class="btn btn-outline-danger rounded-pill mx-1" (click)="deleteOperation(product.id)">
+               <i class="mx-1 bi bi-trash3"></i></button>
+            </td>
+         </tr>
+      }
+     </tbody>
+   </table>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>

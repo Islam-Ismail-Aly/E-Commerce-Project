@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<!-- Start Hero Section -->
+<div class="hero">
+   <div class="container">
+      <div class="row justify-content-between">
+         <div class="col-lg-5">
+            <div class="intro-excerpt">
+               <h1>Shop</h1>
+               <p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+            </div>
+         </div>
+         <div class="col-lg-7"></div>
+      </div>
+   </div>
+</div>
+<!-- End Hero Section -->
+
+<div class="untree_co-section product-section before-footer-section">
+   <div class="container">
+      <div class="row">
+         <!-- Loop through each product -->
+         <div *ngFor="let product of products" class="col-12 col-md-4 col-lg-3 mb-5">
+            <app-product-item [product]="product"></app-product-item>
+         </div>
+         <div *ngIf="products.length === 0" class="col-12">
+            <div class="alert alert-warning"><i class="bi bi-exclamation-triangle"></i> No products to show</div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-12">
+            <ul class="pagination justify-content-center" style="font-size: 10px;">
+               <li class="page-item" [class.disabled]="currentPage === 1">
+                  <a class="btn btn-secondary" (click)="goToPage(currentPage - 1)">
+                     <i class="bi bi-chevron-left"></i> Previous
+                  </a>
+               </li>
+               <li *ngFor="let page of [].constructor(totalPages); let i = index" class="page-item" [class.active]="currentPage === i + 1">
+                  <a class="btn btn-outline-dark" (click)="goToPage(i + 1)">{{ i + 1 }}</a>
+               </li>
+               <li class="page-item" [class.disabled]="currentPage === totalPages">
+                  <a class="btn btn-secondary" (click)="goToPage(currentPage + 1)">
+                     Next <i class="bi bi-chevron-right"></i>
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </div>
+</div>
+<app-footer></app-footer>

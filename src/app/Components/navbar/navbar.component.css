@@ -1,0 +1,27 @@
+.logo img{
+  width: 55px;
+  height: auto;
+  margin-right: 10px; 
+  text-align: center;
+  align-items: center;
+}
+
+.logo a{
+  background: linear-gradient(90deg, #ececec, #37a1e8);
+  background-clip: text;
+  color: transparent;
+}
+
+.logo img:hover{
+  transform: translateY(-4px);
+  transition: all 0.40s ease;
+}
+
+.nav-item.dropdown .dropdown-menu .dropdown-item {
+  color: #343a40 !important;
+}
+
+.nav-link-active{
+  color: #6DB9EF !important;
+}
+

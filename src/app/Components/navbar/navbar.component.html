@@ -1,0 +1,44 @@
+		<!-- Start Header/Navigation -->
+		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+
+			<div class="container">
+				<a class="navbar-brand" [routerLink]="['/']"> MarketOO<span>.</span></a>
+
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse">
+					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+						<li class="nav-item"><a class="nav-link" routerLink="/home" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+						<li class="nav-item"><a class="nav-link" routerLink="/shop" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }">Shop</a></li>
+						<li class="nav-item"><a class="nav-link" routerLink="/about-us" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }">About us</a></li>
+						<li class="nav-item"><a class="nav-link" routerLink="/contact-us" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }">Contact us</a></li>
+
+						<li class="nav-item dropdown" [hidden]="isLoggedIn">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="bi bi-person-gear fs-5"></i> Account
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							  <li><a class="dropdown-item custom-text-dark" [routerLink]="['/login']" title="Login"><i class="bi bi-person fs-5 text-dark"></i> Login</a></li>
+							  <li><a class="dropdown-item custom-text-dark" [routerLink]="['/register']" title="Register"><i class="bi bi-person-plus fs-5 text-dark"></i> Register</a></li>
+							</ul>
+						 </li>
+						<li><span class="nav-link" title="Welcome, {{username}}" [hidden]="!isLoggedIn"> Welcome, {{ username }} <span class="fs-5">😊</span> </span></li>
+						<li><span class="nav-link" [routerLink]="['/admin']"  title="{{role}}" [hidden]="!isAdmin"> {{ role?.toUpperCase() }} <span class="fs-5"><i class="bi bi-shield-check text-success"></i></span> </span></li>
+						<li><a class="nav-link" [routerLink]="['/cart']" title="Cart" [hidden]="!isLoggedIn"><i class="bi bi-cart fs-5"></i></a></li>
+						<li>
+							<a type="button" class="nav-link" title="Logout" (click)="logout()" [hidden]="!isLoggedIn">Log Out
+							  <i class="bi bi-box-arrow-right fs-6 nav-item"></i>
+							</a>
+						 </li>
+						</ul>
+
+					<!-- <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+
+					</ul> -->
+				</div>
+			</div>
+				
+		</nav>
+		<!-- End Header/Navigation -->

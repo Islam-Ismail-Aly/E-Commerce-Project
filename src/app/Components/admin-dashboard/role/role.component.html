@@ -1,0 +1,39 @@
+<main id="main" class="main">
+   <section class="section dashboard">
+     <div class="row">
+       <div class="col-12">
+         <div class="card">
+           <div class="card-body">
+             <h5 class="card-title">Roles Management</h5>
+             <table class="table table-hover" id="dataTable">
+               <thead>
+                 <tr>
+                   <th class="col">Role Name</th>
+                   <th class="col mx-2">Actions</th>
+                 </tr>
+               </thead>
+               <tbody>
+                @for (role of roles; track role.userId; let i = $index) {
+                 <tr >
+                   <td>{{role.role}}</td>
+                   <td>
+                     <button title="Edit" name="Edit" class="btn btn-sm btn-primary rounded-pill mx-1">
+                       <i class="bi bi-pencil-square"></i>
+                     </button>
+                     <button title="Delete" name="Delete" class="btn btn-sm btn-outline-danger rounded-pill mx-1">
+                       <i class="bi bi-trash"></i>
+                     </button>
+                   </td>
+                 </tr>
+                }
+               </tbody>
+             </table>
+             <!-- Add a button for creating a new role -->
+             <!-- <button class="btn btn-success" (click)="createRole()">Create New Role</button> -->
+           </div>
+         </div>
+       </div>
+     </div>
+   </section>
+ </main>
+ 

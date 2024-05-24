@@ -1,0 +1,26 @@
+.add-to-cart {
+   font-size: 12px;
+   text-align: center;
+}
+
+.btn {
+   font-weight: 600;
+   padding: 12px 30px;
+   border-radius: 30px;
+   color: #ffffff;
+   background: #2f2f2f;
+   border-color: #2f2f2f; }
+   .btn:hover {
+     color: #ffffff;
+     background: #222222;
+     border-color: #222222; }
+   .btn:active, .btn:focus {
+     outline: none !important;
+     -webkit-box-shadow: none;
+     box-shadow: none; }
+   .btn.btn-primary {
+     background: #73b39df3;
+     border-color: #73b39df3; }
+     .btn.btn-primary:hover {
+       background: #314d43;
+       border-color: #314d43; }

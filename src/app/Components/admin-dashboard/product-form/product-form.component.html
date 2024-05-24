@@ -1,0 +1,68 @@
+<main id="main" class="main">
+  <section class="section dashboard">
+<div class="container">
+    <form [formGroup]="productForm" (submit)="productOperation()">
+      <div class="d-flex mx-1 my-3">
+        <div class="bg-info-subtle py-2 px-4 py-1 rounded-pill d-flex align-items-center">
+          <h5 class="m-0 page-title px-4">{{ productId == 0 ? 'Add Product Data' : 'Edit Product Data' }}</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="form-group my-3">
+            <input formControlName="name" type="text" name="productName" class="form-control" placeholder="Product Name.." required />
+            <span class="text-danger" *ngIf="getName.invalid && getName.touched">
+              <span *ngIf="getName.hasError('required')">Name is required.</span>
+              <span *ngIf="getName.hasError('minlength')">Name must be at least 7 characters long.</span>
+              <span *ngIf="getName.hasError('maxlength')">Name cannot be more than 15 characters long.</span>
+            </span>
+          </div>
+          <div class="form-group my-3">
+            <input type="file" (change)="onFileChange($event)" class="form-control" placeholder="Upload Image" required />
+            <input formControlName="image" type="hidden" />
+          </div>
+          <div class="form-group my-3 col-sm-3">
+            <input formControlName="rating" type="number" name="productRating" class="form-control" placeholder="Rating" min="0" max="5" required />
+          </div>
+          <div class="form-group my-3">
+            <select title="category" formControlName="category" class="form-select" required>
+              <option value="" disabled selected>Select Category</option>
+              <option *ngFor="let category of categories" [value]="category.id">
+                {{ category.name }}
+              </option>
+            </select>
+            <span class="text-danger" *ngIf="getCategory.invalid && getCategory.touched">
+              <span *ngIf="getCategory.hasError('required')">Category is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group my-3 col-sm-3">
+            <input formControlName="price" type="number" name="productPrice" class="form-control" placeholder="Price" required />
+            <span class="text-danger" *ngIf="getPrice.invalid && getPrice.touched">
+              <span *ngIf="getPrice.hasError('required')">Price is required.</span>
+            </span>
+          </div>
+          <div class="form-group my-3 col-sm-3">
+            <input formControlName="quantity" type="number" name="productQuantity" class="form-control" placeholder="Quantity" min="0" required />
+            <span class="text-danger" *ngIf="getQuantity.invalid && getQuantity.touched">
+              <span *ngIf="getQuantity.hasError('required')">Quantity is required.</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <span class="form-control bg-warning-subtle p-3 px-3">{{ productForm.value | json }}</span>
+      <div class="form-group my-3 col-sm-12">
+        <button type="submit" name="btnSubmit" class="btn btn-outline-primary rounded-pill px-4">
+          <i class="{{ productId == 0 ? 'bi bi-plus' : 'bi bi-pencil-square' }}"></i>
+          {{ productId == 0 ? 'Add Product' : 'Update Product' }}
+        </button>
+      </div>
+      <div class="form-group text-center my-5 col-sm-12">
+        <a type="button" href="/admin/products" class="btn btn-outline-success rounded-pill px-5">Go to Products <i class="bi bi-back fs-5"></i></a>
+      </div>
+    </form>
+  </div>
+  </section>
+</main>
+  
